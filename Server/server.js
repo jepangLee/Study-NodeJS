@@ -1,12 +1,19 @@
-const http = require('http');
-const fs = require('fs');
+const http2 = require('http2');
 
+const fs = require('fs');
+const path = require('path');
 const users = {};
 
-http.createServer((req, res) => {
+http2.createSecureServer({
+    cert: fs.readFileSync(path.join(__dirname, '../Cert/server.crt')),
+    key: fs.readFileSync(path.join(__dirname, "../Cert/server.key")),
+    ca:[
+        fs.readFileSync(path.join(__dirname, '../Cert/ca.crt')),
+    ]
+}, (req, res) => {
     if (req.method === 'GET') {
         if (req.url === '/') {
-            return fs.readFile('./front.html', (err, data) => {
+            return fs.readFile(path.join(__dirname, '../Client/front.html'), (err, data) => {
                 if (err) {
                     throw err;
                 }
@@ -14,7 +21,7 @@ http.createServer((req, res) => {
             });
         }
         else if (req.url === '/about') {
-            return fs.readFile('./about.html', (err, data) => {
+            return fs.readFile(path.join(__dirname, '../Client/about.html'), (err, data) => {
                 if (err) {
                     throw err;
                 }
@@ -24,15 +31,17 @@ http.createServer((req, res) => {
         else if (req.url === '/users') {
             return res.end(JSON.stringify(users));
         }
-        return fs.readFile(`.${req.url}`, (err, data) => {
-            if (err) {
-                res.writeHead(404, 'NOT FOUND');
-                return res.end('NOT FOUND');
-            }
-            return res.end(data);
-        });
+        else {
+            return fs.readFile(path.join(__dirname, `../Client/${req.url}`), (err, data) => {
+                if (err) {
+                    res.writeHead(404, 'NOT FOUND');
+                    return res.end('NOT FOUND');
+                }
+                return res.end(data);
+            });
+        }
     }
-    else if (req.method === 'POST') {
+    else if (req.method === 'POdST') {
         if (req.url === '/users') {
             let body = '';
             req.on('data', (data) => {
@@ -73,7 +82,6 @@ http.createServer((req, res) => {
         res.writeHead(404, 'NOT FOUND');
         return res.end('NOT FOUND');
     }
-})
-    .listen(8888, () => {
-        console.log('8888번 포트에서 서버 대기중입니다');
-    });
+}).listen(8888, () => {
+    console.log('8888번 포트에서 서버 대기중입니다');
+});

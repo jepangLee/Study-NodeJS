@@ -5,7 +5,7 @@ function getUser() {
             const users = JSON.parse(xhr.responseText);
             const list = document.getElementById('list');
             list.innerHTML = '';
-            Object.keys(users).map(function (key) {
+            Object.keys(users).map( (key) => {
                 const userDiv = document.createElement('div');
                 const span = document.createElement('span');
                 span.textContent = users[key];
@@ -32,7 +32,7 @@ function getUser() {
                 });
                 const remove = document.createElement('button');
                 remove.textContent = '삭제';
-                remove.addEventListener('click', () => { // 삭제 버튼 클릭
+                remove.addEventListener('click', () => {
                     const xhr = new XMLHttpRequest();
                     xhr.onload = () => {
                         if (xhr.status === 200) {
