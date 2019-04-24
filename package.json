@@ -1,20 +1,30 @@
 {
-  "name": "study-node",
+  "name": "Study_NodeJS",
   "version": "1.0.0",
   "description": "as the title is",
-  "main": "index.js",
+  "main": "./chap_6/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Server/server.js"
+    "start": "node chap_6/bin/www.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jepangLee/Study-Node.js.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/jepangLee/Study-Node.js.git",
+  "author": "JepangLee <ljsung0805@naver.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jepangLee/Study-Node.js/issues"
   },
-  "homepage": "https://github.com/jepangLee/Study-Node.js#readme"
+  "homepage": "https://github.com/jepangLee/Study-Node.js#readme",
+  "dependencies": {
+    "body-parser": "latest",
+    "connect-flash": "latest",
+    "cookie-parser": "^1.4.4",
+    "debug": "latest",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "http-errors": "^1.7.2",
+    "http2": "latest",
+    "morgan": "^1.9.1",
+    "pu": "^3.1.0",
+    "pug": "^2.0.3"
+  }
 }
