@@ -3,7 +3,7 @@ const User = require('../models').User;
 
 const router = express.Router();
 
-router.get('/', function (req, res, next) {
+router.get('/',  (req, res, next) => {
     User.findAll()
         .then((users) => {
             res.render('sequelize', {users});

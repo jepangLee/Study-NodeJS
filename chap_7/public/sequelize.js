@@ -91,7 +91,7 @@ function getComment(id) {
               console.error(xhr.responseText);
             }
           };
-          xhr.open('DEletE', '/comments/' + comment.id);
+          xhr.open('DELETE', '/comments/' + comment.id);
           xhr.send();
         });
         td = document.createElement('td');

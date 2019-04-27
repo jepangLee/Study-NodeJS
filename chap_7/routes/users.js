@@ -3,7 +3,7 @@ const User = require('../models').User;
 
 const router = express.Router();
 
-router.get('/', function (req, res, next) {
+router.get('/',  (req, res, next) => {
     User.findAll()
         .then((users) => {
             res.json(users);
@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
         });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', (req, res, next) => {
     User.create({
         name: req.body.name,
         age: req.body.age,

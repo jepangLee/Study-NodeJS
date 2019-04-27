@@ -3,7 +3,7 @@ const {User, Comment} = require('../models');
 
 const router = express.Router();
 
-router.get('/:id', function (req, res, next) {
+router.get('/:id',  (req, res, next) => {
     Comment.findAll({
         include: {
             model: User,
@@ -20,7 +20,7 @@ router.get('/:id', function (req, res, next) {
         });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/',  (req, res, next)  => {
     Comment.create({
         commenter: req.body.id,
         comment: req.body.comment,
@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
         });
 });
 
-router.patch('/:id', function (req, res, next) {
+router.patch('/:id',  (req, res, next) => {
     Comment.update({comment: req.body.comment}, {where: {id: req.params.id}})
         .then((result) => {
             res.json(result);
@@ -46,7 +46,7 @@ router.patch('/:id', function (req, res, next) {
         });
 });
 
-router.delete('/:id', function (req, res, next) {
+router.delete('/:id',  (req, res, next) => {
     Comment.destroy({where: {id: req.params.id}})
         .then((result) => {
             res.json(result);
