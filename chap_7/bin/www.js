@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+
 const app = require('../app');
-const debug = require('debug')('chap-6:server');
+const debug = require('debug')('learn-sequelize:server');
 const http = require('http');
 
 const port = normalizePort(process.env.PORT || '8888');
@@ -15,10 +17,12 @@ function normalizePort(val) {
     const port = parseInt(val, 10);
 
     if (isNaN(port)) {
+        // named pipe
         return val;
     }
 
     if (port >= 0) {
+        // port number
         return port;
     }
 

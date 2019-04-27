@@ -5,7 +5,7 @@
     "database": "nodejs",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorAliases" : false
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
