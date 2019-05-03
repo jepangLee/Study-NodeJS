@@ -4,7 +4,7 @@ const app = require('../app');
 const debug = require('debug')('learn-mongoose:server');
 const http = require('http');
 
-const port = ((val) => {
+app.set('port', ((val) => {
     const port = parseInt(val, 10);
 
     if (isNaN(port)) {
@@ -18,9 +18,7 @@ const port = ((val) => {
     }
 
     return false;
-})(process.env.PORT || '3000');
-
-app.set('port', port);
+})(process.env.PORT || '3000'));
 
 const server = http.createServer(app);
 
