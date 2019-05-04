@@ -147,7 +147,7 @@ document.getElementById('user-form').addEventListener('submit', (e) => {
     xhr.open('POST', '/users');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({name: name, age: age, married: married}));
-    
+
     e.target.username.value = '';
     e.target.age.value = '';
     e.target.married.checked = false;

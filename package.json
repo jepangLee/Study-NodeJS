@@ -2,10 +2,10 @@
   "name": "Study_NodeJS",
   "version": "1.0.0",
   "description": "as the title is",
-  "main": "./chap_6/app.js",
+  "main": "./practice/bin/www.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node chap_8/bin/www.js"
+    "start": "node practice/bin/www.js"
   },
   "repository": "git+https://github.com/jepangLee/Study-Node.js.git",
   "author": "JepangLee <ljsung0805@naver.com>",

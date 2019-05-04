@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     const user = new User({
+        id : req.body.id,
         name: req.body.name,
         age: req.body.age,
     });
