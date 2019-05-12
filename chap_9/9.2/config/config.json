@@ -1,23 +1,23 @@
 {
   "development": {
     "username": "root",
-    "password": "qlalfqjsgh1",
-    "database": "nodebird",
+    "password": "456852",
+    "database": "nodeBird",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "test": {
     "username": "root",
-    "password": "qlalfqjsgh1",
-    "database": "database_test",
+    "password": "456852",
+    "database": "nodeBird",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "qlalfqjsgh1",
-    "database": "database_production",
+    "password": "456852",
+    "database": "nodeBird",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
